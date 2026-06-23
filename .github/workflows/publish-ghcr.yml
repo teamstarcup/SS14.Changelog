@@ -2,11 +2,13 @@ name: Publish to GitHub Package Registry
 
 # Configures this workflow to run every time a change is pushed to the branch called `release`.
 on:
+  workflow_dispatch:
   push:
     branches:
       - 'master'
     tags:
       - 'v*'
+    
 env:
   REGISTRY: ghcr.io
   IMAGE_NAME: ${{ github.repository }}
